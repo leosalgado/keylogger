@@ -1,5 +1,10 @@
-keylogger:
-	gcc -Wall -Wextra main.c keys.c -o keylogger
+CC = gcc
+CFLAGS = -Wall -Wextra
+
+keylogger: main.c keys.c keys.h
+	$(CC) $(CFLAGS) main.c keys.c -o keylogger
 
 clean:
-	rm -f main
+	rm -f keylogger keylog_*.txt
+
+.PHONY: clean
